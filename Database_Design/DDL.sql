@@ -1,0 +1,38 @@
+CREATE TABLE Employee
+(
+  Id INT NOT NULL,
+  Fname VARCHAR NOT NULL,
+  Mname VARCHAR NOT NULL,
+  Lname VARCHAR NOT NULL,
+  DOB DATE NOT NULL,
+  Score FLOAT NOT NULL,
+  PRIMARY KEY (Id)
+);
+
+CREATE TABLE Room
+(
+  Room_no INT NOT NULL,
+  Time FLOAT NOT NULL,
+  Id INT NOT NULL,
+  PRIMARY KEY (Room_no),
+  FOREIGN KEY (Id) REFERENCES Employee(Id)
+);
+
+CREATE TABLE Feedback
+(
+  Feedback VARCHAR NOT NULL,
+  Score FLOAT NOT NULL,
+  Date DATE NOT NULL,
+  Id INT NOT NULL,
+  Id INT NOT NULL,
+  FOREIGN KEY (Id) REFERENCES Employee(Id),
+  FOREIGN KEY (Id) REFERENCES Employee(Id)
+);
+
+CREATE TABLE Employee_Email
+(
+  Email VARCHAR NOT NULL,
+  Id INT NOT NULL,
+  PRIMARY KEY (Email, Id),
+  FOREIGN KEY (Id) REFERENCES Employee(Id)
+);
