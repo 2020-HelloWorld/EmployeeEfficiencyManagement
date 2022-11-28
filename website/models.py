@@ -8,8 +8,6 @@ class Note(db.Model):
     data = db.Column(db.String(10000))
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    employee_id = db.Column(db.Integer,db.ForeignKey('employee.id'))
-
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -17,11 +15,5 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
     notes = db.relationship('Note')
-    employee = db.relationship('Employee')
 
-class Employee(db.Model):
-    id = db.Column(db.Integer,primary_key=True)
-    email = db.Column(db.String(150))
-    first_name = db.Column(db.String(150))
-    notes = db.relationship('Note')
-    supervisor = db.Column(db.Integer,db.ForeignKey('user.id'))
+

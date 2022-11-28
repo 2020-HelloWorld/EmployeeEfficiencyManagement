@@ -1,5 +1,11 @@
 {% extends "base.html" %} {% block title %}Feedback{% endblock %} {% block content
     %}
+    {% for emp in emp_list %}
+    <div class="p-2">
+      NAME:{{emp[1]}} <br>
+      EMAIL_ID:{{emp[2]}} <br>
+    </div>
+    {% endfor %}
     <h1 align="center">Feedback</h1>
     <form method="POST">
         <textarea name="note" id="note" class="form-control"></textarea>
@@ -20,7 +26,6 @@
             <br/>
             <span>{{date}}</span>
         </div>
-        
       </li>
       {% endfor %}
     </ul>
